@@ -1,4 +1,5 @@
 // BookList.tsx
+import axios from "axios";
 import React from 'react';
 import { Book } from './types'; // 타입 불러오기
 
@@ -16,3 +17,6 @@ const BookList = ({ books }: { books: Book[] }) => {
 };
 
 export default BookList;
+
+
+
