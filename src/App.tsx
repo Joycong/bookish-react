@@ -1,15 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 import { Typography } from '@mui/material';
+import { Book } from './types'; // 타입 불러오기
+import BookList from './BookList'; // 새 컴포넌트 가져오기
+import BookListContainer from './BookListContainer';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
-function App() {
+const App = () => {  
   return (
-    <Typography variant='h2' component='h2' data-test='heading'>
-      Bookish      
-    </Typography>
+    <div>
+      <Typography variant='h2' component='h2' data-test='heading'>
+        Bookish
+      </Typography>
+      <BookListContainer />
+    </div>
   );
 }
+
 
 export default App;
 
