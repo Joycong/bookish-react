@@ -25,7 +25,6 @@ pipeline {
         stage('E2E Test') {
             steps {
                 sh 'npx cypress run'
-                // 또는 sh 'npm run e2e' 로 실행 가능 (스크립트 정의되어 있다면)
             }
         }
     }
