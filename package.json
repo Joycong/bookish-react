@@ -29,7 +29,7 @@
     "eject": "react-scripts eject",
     "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\"",
     "stub-server": "node server.js",
-    "dev": "concurrently \"npm run stub-server\" \"npm start\"",
+    "dev": "npm start",
     "test:e2e": "cypress run",
     "e2e": "start-server-and-test stub-server http://localhost:8081 dev && npm run test:e2e"
   },
