@@ -1,30 +1,19 @@
 pipeline {
-    agent any  // ✅ Docker 대신 일반 환경에서 실행
+  agent any
 
-    stages {
-        stage('Install dependencies') {
-            steps {
-                sh 'npm ci'
-            }
+  stages {
+    stage('Cypress in Docker') {
+      steps {
+        script {
+          docker.image('cypress/included:13.7.3').inside {
+            sh 'npm ci'
+            sh 'npm test -- --watchAll=false'
+            sh 'nohup node server.js &'
+            sh 'sleep 3'
+            sh 'npx cypress run'
+          }
         }
-
-        stage('Run Unit Tests') {
-            steps {
-                sh 'npm test -- --watchAll=false'
-            }
-        }
-
-        stage('Start Stub Server') {
-            steps {
-                sh 'nohup node server.js &'
-                sh 'sleep 3'
-            }
-        }
-
-        stage('Run E2E Tests') {
-            steps {
-                sh 'npx cypress run'
-            }
-        }
+      }
     }
+  }
 }
