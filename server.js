@@ -21,6 +21,6 @@ server.use(middlewares)     // 기본 미들웨어 등록
 server.use(router)          // REST API 라우터 등록
 
 // 8080 포트에서 서버 실행 시작
-server.listen(8080, () => {
-    console.log('JSON Server is running')
-})
+server.listen(8080, 'localhost', () => {
+  console.log('JSON Server is running on http://localhost:8080');
+});

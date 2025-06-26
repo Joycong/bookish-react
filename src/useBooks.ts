@@ -13,7 +13,7 @@ export function useBooks() {
       setError(false);    // 에러 초기화
       setLoading(true);   // 로딩 시작
       try {
-        const response = await axios.get('http://localhost:8080/books');
+        const response = await axios.get("/books");
         setBooks(response.data);    // 책 목록 저장
       } catch (e) {
         setError(true);             // 에러 발생 시
