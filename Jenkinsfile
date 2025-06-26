@@ -8,11 +8,12 @@ pipeline {
         stage('Run Unit Tests') {
             steps { sh 'npm test -- --watchAll=false' }
         }
-        stage('Start Server') {
-            steps {
-                sh 'nohup node server.js &'
-                sh 'sleep 3'
-            }
+        stage('Start Servers') {
+          steps {
+            sh 'nohup json-server --watch db.json --port 8081 &'
+            sh 'nohup npm start &'
+            sh 'sleep 10'
+          }
         }
         stage('Run E2E Tests') {
             steps { sh 'npx cypress run' }
