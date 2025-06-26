@@ -28,7 +28,7 @@
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "e2e": "cypress run",
-    "stub-server": "json-server --watch db.json --port 8080",
+    "stub-server": "json-server --watch db.json --port 8081",
     "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\""
   },
   "eslintConfig": {
