@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Start Servers') {
           steps {
-            sh 'nohup json-server --watch db.json --port 8081 &'
+            sh 'nohup npx json-server --watch db.json --port 8081 &'
             sh 'nohup npm start &'
             sh 'sleep 10'
           }
